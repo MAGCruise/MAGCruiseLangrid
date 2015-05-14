@@ -1,15 +1,13 @@
 (display "load langrid.scm ... ")
-(define-alias ArrayUtil jp.go.nict.langrid.commons.util.ArrayUtil)
 (define-alias Translation jp.go.nict.langrid.service_1_2.bilingualdictionary.Translation)
-(define-alias BindingUtil org.magcruise.gaming.langrid.BindingUtil)
 
 ;; 使用には*endpointPath*, *langridUserId*, *langridPasswd*の定義が必須
 (define *endpointPath* "http://langrid.org/service_manager/invoker")
 (define *langridUserId* #!null)
 (define *langridPasswd* #!null)
 
-(define (langrid:make-client service-clazz serviceId bindings)
-  (invoke-static BindingUtil 'setBindings
+(define (langrid:make-client service-clazz ::java.lang.Class serviceId ::string bindings ::list)
+  (invoke-static org.magcruise.gaming.langrid.BindingUtil 'setBindings
     (invoke (jp.go.nict.langrid.client.soap.SoapClientFactory) 'create
           service-clazz
           (java.net.URL (string-append *endpointPath* "/" serviceId))
@@ -19,8 +17,6 @@
     bindings
   )
 )
-
-
 
 (define (langrid:AdjacencyPair-search serviceId category language firstTurn matchingMethod . bindings)
   (invoke (langrid:make-client jp.go.nict.langrid.service_1_2.adjacencypair.AdjacencyPairService serviceId bindings)
@@ -356,6 +352,6 @@
 
 (define (langrid:set-proxy-with-auth host port user passwd)
   (set-proxy host port)
-  (<java.net.Authenticator>:setDefault (org.magcruise.webui.util.ProxyAuthenticator user passwd)))
+  (<java.net.Authenticator>:setDefault (org.magcruise.gaming.langrid.ProxyAuthenticator user passwd)))
 
 (display "end. ")

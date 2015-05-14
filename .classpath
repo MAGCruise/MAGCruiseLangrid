@@ -7,7 +7,6 @@
 			<attribute name="javadoc_location" value="http://www.gnu.org/software/kawa/api/"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry combineaccessrules="false" kind="src" path="/MAGCruiseCore"/>
 	<classpathentry kind="lib" path="/MAGCruiseLibraries/servicegrid/jp.go.nict.langrid.client.jar"/>
 	<classpathentry kind="lib" path="/MAGCruiseLibraries/servicegrid/jp.go.nict.langrid.commons.jar"/>
 	<classpathentry kind="lib" path="/MAGCruiseLibraries/servicegrid/jp.go.nict.langrid.service.language_1_2.jar"/>

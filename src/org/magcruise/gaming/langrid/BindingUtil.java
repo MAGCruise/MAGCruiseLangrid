@@ -28,18 +28,25 @@ import jp.go.nict.langrid.client.RequestAttributes;
 import jp.go.nict.langrid.commons.cs.binding.BindingNode;
 
 public class BindingUtil {
+
+	/**
+	 * clientはjava.rmi.Remoteを使っている．実体がよく分からない．
+	 *
+	 * @param client
+	 * @param bindings
+	 * @return
+	 */
 	public static Object setBindings(Object client, LList bindings) {
 		RequestAttributes reqAttrs = (RequestAttributes) client;
-		int n = bindings.size();
-		for (int i = 0; i < n; i++) {
-			BindingNode node = newBindingNode(bindings.get(i));
+
+		for (int i = 0; i < bindings.size(); i++) {
+			BindingNode node = newBindingNode((LList) bindings.get(i));
 			reqAttrs.getTreeBindings().add(node);
 		}
 		return client;
 	}
 
-	private static BindingNode newBindingNode(Object obj) {
-		LList list = (LList) obj;
+	private static BindingNode newBindingNode(LList list) {
 		if (list.size() < 2)
 			throw new RuntimeException("invalid binding.");
 		BindingNode ret = new BindingNode(list.get(0).toString(), list.get(1)
@@ -48,7 +55,7 @@ public class BindingUtil {
 			LList children = (LList) list.get(2);
 			int n = children.size();
 			for (int i = 0; i < n; i++) {
-				ret.addChild(newBindingNode(children.get(i)));
+				ret.addChild(newBindingNode((LList) children.get(i)));
 			}
 		}
 		return ret;
