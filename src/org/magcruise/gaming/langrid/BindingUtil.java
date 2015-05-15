@@ -30,13 +30,12 @@ import jp.go.nict.langrid.commons.cs.binding.BindingNode;
 public class BindingUtil {
 
 	/**
-	 * clientはjava.rmi.Remoteを使っている．実体がよく分からない．
-	 *
 	 * @param client
 	 * @param bindings
 	 * @return
 	 */
 	public static Object setBindings(Object client, LList bindings) {
+		// clientはjava.rmi.Remoteを使っている．キャストが成立する理由がよく分からないがnakaguchiさん実装なので信じる．
 		RequestAttributes reqAttrs = (RequestAttributes) client;
 
 		for (int i = 0; i < bindings.size(); i++) {
