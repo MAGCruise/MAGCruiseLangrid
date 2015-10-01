@@ -29,11 +29,6 @@ import jp.go.nict.langrid.commons.cs.binding.BindingNode;
 
 public class BindingUtil {
 
-	/**
-	 * @param client
-	 * @param bindings
-	 * @return
-	 */
 	public static Object setBindings(Object client, LList bindings) {
 		// clientはjava.rmi.Remoteを使っている．キャストが成立する理由がよく分からないがnakaguchiさん実装なので信じる．
 		RequestAttributes reqAttrs = (RequestAttributes) client;
@@ -48,8 +43,8 @@ public class BindingUtil {
 	private static BindingNode newBindingNode(LList list) {
 		if (list.size() < 2)
 			throw new RuntimeException("invalid binding.");
-		BindingNode ret = new BindingNode(list.get(0).toString(), list.get(1)
-				.toString());
+		BindingNode ret = new BindingNode(list.get(0).toString(),
+				list.get(1).toString());
 		if (list.size() == 3) {
 			LList children = (LList) list.get(2);
 			int n = children.size();
