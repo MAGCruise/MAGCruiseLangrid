@@ -1,20 +1,19 @@
 package org.magcruise.gaming.langrid;
 
-import gnu.lists.LList;
-
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import gnu.lists.LList;
 import jp.go.nict.langrid.client.soap.SoapClientFactory;
 
 public class ClientFactory {
 
-	public static Object create(Class<?> clazz, String serviceInterfaceURL,
+	public static <T> T create(Class<T> clazz, String serviceInterfaceURL,
 			String userId, String passwd, LList bindings) {
 
 		try {
-			Object client = new SoapClientFactory().create(clazz, new URL(
-					serviceInterfaceURL), userId, passwd);
+			T client = new SoapClientFactory().create(clazz,
+					new URL(serviceInterfaceURL), userId, passwd);
 			BindingUtil.setBindings(client, bindings);
 			return client;
 		} catch (MalformedURLException e) {

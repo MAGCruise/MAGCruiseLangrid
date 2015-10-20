@@ -6,6 +6,9 @@
 (define *langridUserId* #!null)
 (define *langridPasswd* #!null)
 
+(define-alias TranslationWithTemporalDictionaryService jp.go.nict.langrid.service_1_2.translation.TranslationWithTemporalDictionaryService)
+
+
 (define (langrid:set-proxy host port)
   (<java.lang.System>:setProperty "http.proxyHost" host)
   (<java.lang.System>:setProperty "http.proxyPort" port))
