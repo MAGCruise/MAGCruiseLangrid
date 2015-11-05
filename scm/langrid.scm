@@ -1,4 +1,4 @@
-(display "load langrid.scm ... ")
+(display "(load langrid.scm ... ")
 (define-alias Translation jp.go.nict.langrid.service_1_2.bilingualdictionary.Translation)
 
 ;; 使用には*endpointPath*, *langridUserId*, *langridPasswd*の定義が必須
@@ -349,4 +349,4 @@
   (invoke (langrid:make-client jp.go.nict.langrid.service_1_2.translationselection.TranslationSelectionService serviceId bindings)
           'select sourceLang targetLang source))
 
-(display "end. ")
+(display "end)")
