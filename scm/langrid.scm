@@ -1,12 +1,15 @@
 (display "(load langrid.scm ... ")
+
+(define-namespace langrid "org.magcruise.langrid")
 (define-alias Translation jp.go.nict.langrid.service_1_2.bilingualdictionary.Translation)
+(define-alias TranslationWithTemporalDictionaryService jp.go.nict.langrid.service_1_2.translation.TranslationWithTemporalDictionaryService)
+
 
 ;; 使用には*endpointPath*, *langridUserId*, *langridPasswd*の定義が必須
 (define *endpointPath* "http://langrid.org/service_manager/invoker")
 (define *langridUserId* #!null)
 (define *langridPasswd* #!null)
 
-(define-alias TranslationWithTemporalDictionaryService jp.go.nict.langrid.service_1_2.translation.TranslationWithTemporalDictionaryService)
 
 
 (define (langrid:set-proxy host port)
