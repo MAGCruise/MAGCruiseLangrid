@@ -4,3 +4,4 @@
 *.log
 /config/settings.scm
 /.settings/org.eclipse.ltk.core.refactoring.prefs
+/config/langrid-conf.json

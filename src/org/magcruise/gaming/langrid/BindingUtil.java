@@ -29,15 +29,24 @@ import jp.go.nict.langrid.commons.cs.binding.BindingNode;
 
 public class BindingUtil {
 
-	public static Object setBindings(Object client, LList bindings) {
-		// clientはjava.rmi.Remoteを使っている．キャストが成立する理由がよく分からないがnakaguchiさん実装なので信じる．
-		RequestAttributes reqAttrs = (RequestAttributes) client;
+	public static void setBindings(Object client, BindingNode[] bindings) {
+		for (BindingNode binding : bindings) {
+			setBinding(client, binding);
+		}
+	}
 
+	public static Object setBindings(Object client, LList bindings) {
 		for (int i = 0; i < bindings.size(); i++) {
 			BindingNode node = newBindingNode((LList) bindings.get(i));
-			reqAttrs.getTreeBindings().add(node);
+			setBinding(client, node);
 		}
 		return client;
+	}
+
+	private static void setBinding(Object client, BindingNode binding) {
+		// clientはjava.rmi.Remoteを使っている．キャストが成立する理由がよく分からないがnakaguchiさん実装なので信じる．
+		RequestAttributes reqAttrs = (RequestAttributes) client;
+		reqAttrs.getTreeBindings().add(binding);
 	}
 
 	private static BindingNode newBindingNode(LList list) {
@@ -54,4 +63,5 @@ public class BindingUtil {
 		}
 		return ret;
 	}
+
 }
