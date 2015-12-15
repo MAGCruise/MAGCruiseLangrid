@@ -1,4 +1,5 @@
 (org.magcruise.gaming.langrid.SchemePlugin:load)
+(org.magcruise.gaming.langrid.AccessConfigFactory:setPath (path "sample/langrid-conf.json"))
 
 (display (langrid:BilingualDictionary-search "Lsd" "en" "ja" "bank" "COMPLETE" ))
 (display "\n")
@@ -7,9 +8,9 @@
 (define original-sentence "今日は晴れです．")
 
 (let* ((translated-sentence 
-          (langrid:Translation-translate "GoogleTranslate" "ja" "en" original-sentence))
+          (langrid:Translation-translate "KyotoUJServer" "ja" "en" original-sentence))
        (back-translated-sentence 
-          (langrid:Translation-translate "GoogleTranslate" "en" "ja" translated-sentence)))
+          (langrid:Translation-translate "KyotoUJServer" "en" "ja" translated-sentence)))
   (display original-sentence)(display "\n");; 今日は晴れです．
   (display translated-sentence)(display "\n");; It is sunny today.
   (display back-translated-sentence)(display "\n");; 今日は晴れです。

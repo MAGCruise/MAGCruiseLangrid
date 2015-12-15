@@ -17,8 +17,7 @@ public class SchemePlugin {
 	private static Logger log = LogManager.getLogger();
 
 	public static void main(String[] args) {
-		GameExecutorManager.getInstance()
-				.loadFramework(SExpressionUtils.setUpEnvironment());
+		GameExecutorManager.getInstance().loadFramework(SExpressionUtils.setUpEnvironment());
 		SExpressionUtils.load(new File("sample/invocation.scm").toPath());
 
 	}
@@ -26,8 +25,7 @@ public class SchemePlugin {
 	public static void load(Environment env) {
 
 		try {
-			Path framework = Paths.get(
-					SchemePlugin.class.getResource("/scm/langrid.scm").toURI());
+			Path framework = Paths.get(SchemePlugin.class.getResource("/scm/langrid.scm").toURI());
 			log.debug("Load framework ... {}", framework);
 			SExpressionUtils.load(env, framework);
 
