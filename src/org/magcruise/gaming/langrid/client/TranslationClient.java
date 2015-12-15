@@ -3,6 +3,7 @@ package org.magcruise.gaming.langrid.client;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.magcruise.gaming.langrid.AccessConfig;
+import org.magcruise.gaming.langrid.AccessConfigFactory;
 import org.magcruise.gaming.langrid.ClientFactory;
 
 import jp.go.nict.langrid.commons.cs.binding.BindingNode;
@@ -40,8 +41,8 @@ public class TranslationClient {
 
 	public static void main(String[] args) {
 
-		TranslationClient tc = new TranslationClient(new AccessConfig("", ""),
-				"GoogleTranslate");
+		TranslationClient tc = new TranslationClient(
+				AccessConfigFactory.create(), "GoogleTranslate");
 		log.debug(tc.translate("ja", "en", "今日は良い天気です．"));
 		log.debug(tc.translate("ja", "vi", "今日は良い天気です．"));
 

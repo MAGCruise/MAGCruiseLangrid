@@ -1,8 +1,11 @@
+(org.magcruise.gaming.langrid.SchemePlugin:load)
+
 (display (langrid:BilingualDictionary-search "Lsd" "en" "ja" "bank" "COMPLETE" ))
 (display "\n")
 ;; [jp.go.nict.langrid.service_1_2.bilingualdictionary.Translation@7a06b0fa[headWord=bank,targetWords={銀行}]]
 
 (define original-sentence "今日は晴れです．")
+
 (let* ((translated-sentence 
           (langrid:Translation-translate "GoogleTranslate" "ja" "en" original-sentence))
        (back-translated-sentence 

@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry exported="true" kind="lib" path="/MAGCruiseLibraries/servicegrid/jp.go.nict.langrid.client.jar"/>
-	<classpathentry exported="true" kind="lib" path="/MAGCruiseLibraries/servicegrid/jp.go.nict.langrid.commons.jar"/>
 	<classpathentry exported="true" kind="lib" path="/MAGCruiseLibraries/servicegrid/jp.go.nict.langrid.service.language_1_2.jar"/>
 	<classpathentry exported="true" kind="lib" path="/MAGCruiseLibraries/servicegrid/jp.go.nict.langrid.client.soap.jar"/>
 	<classpathentry exported="true" kind="lib" path="/MAGCruiseLibraries/servicegrid/jp.go.nict.langrid.service.common_1_2.jar"/>
-	<classpathentry kind="lib" path="/MAGCruiseLibraries/commons/commons-codec-1.3.jar"/>
-	<classpathentry kind="lib" path="/MAGCruiseLibraries/jmte/jmte-3.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="/MAGCruiseLibraries/commons/commons-codec-1.3.jar"/>
+	<classpathentry exported="true" kind="lib" path="/MAGCruiseLibraries/jmte/jmte-3.1.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
 		<attributes>
@@ -15,11 +13,7 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="/MAGCruiseLibraries/kawa/kawa-2.1.jar" sourcepath="/MAGCruiseLibraries/kawa/kawa-2.1-src.jar"/>
 	<classpathentry exported="true" kind="lib" path="/MAGCruiseLibraries/servicegrid/jp.go.nict.langrid.language.jar"/>
-	<classpathentry kind="lib" path="/MAGCruiseLibraries/apache/log4j-api-2.1.jar"/>
-	<classpathentry kind="lib" path="/MAGCruiseLibraries/apache/log4j-core-2.1.jar"/>
-	<classpathentry kind="lib" path="/MAGCruiseLibraries/commons/commons-lang3-3.4.jar"/>
-	<classpathentry kind="lib" path="/MAGCruiseLibraries/commons/commons-lang-2.5.jar"/>
+	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/MAGCruiseCore"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

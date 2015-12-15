@@ -31,7 +31,7 @@ public class AccessConfigFactory {
 
 	public static AccessConfig create() {
 		return create(
-				Paths.get("../MAGCruiseLangrid/config/langrid-conf.json"));
+				Paths.get("config/langrid-conf.json"));
 	}
 
 }

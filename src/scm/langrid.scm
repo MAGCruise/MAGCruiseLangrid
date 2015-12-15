@@ -2,15 +2,6 @@
 
 (define-namespace langrid "org.magcruise.langrid")
 (define-alias Translation jp.go.nict.langrid.service_1_2.bilingualdictionary.Translation)
-(define-alias TranslationWithTemporalDictionaryService jp.go.nict.langrid.service_1_2.translation.TranslationWithTemporalDictionaryService)
-
-
-;; 使用には*endpointPath*, *langridUserId*, *langridPasswd*の定義が必須
-(define *endpointPath* "http://langrid.org/service_manager/invoker")
-(define *langridUserId* #!null)
-(define *langridPasswd* #!null)
-
-
 
 (define (langrid:set-proxy host port)
   (<java.lang.System>:setProperty "http.proxyHost" host)
@@ -20,9 +11,9 @@
   (set-proxy host port)
   (<java.net.Authenticator>:setDefault (org.magcruise.gaming.langrid.ProxyAuthenticator user passwd)))
 
-(define (langrid:make-client service-clazz ::java.lang.Class serviceId ::string bindings ::list)
+(define (langrid:make-client service-clazz ::java.lang.Class serviceId ::string  bindings)
   (org.magcruise.gaming.langrid.ClientFactory:create
-    service-clazz (string-append *endpointPath* "/" serviceId) *langridUserId*  *langridPasswd* bindings))
+    service-clazz serviceId bindings))
 
 (define (langrid:AdjacencyPair-search serviceId category language firstTurn matchingMethod . bindings)
   (invoke (langrid:make-client jp.go.nict.langrid.service_1_2.adjacencypair.AdjacencyPairService serviceId bindings)

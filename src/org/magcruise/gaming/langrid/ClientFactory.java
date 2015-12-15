@@ -22,39 +22,35 @@ public class ClientFactory {
 
 	}
 
+	public static <T> T create(Class<T> clazz, String serviceId,
+			LList bindings) {
+
+		AccessConfig accessInfo = getAccessInfo();
+		T client = create(clazz, accessInfo, serviceId);
+		if (bindings.isEmpty() || bindings.get(0) instanceof LList
+				&& ((LList) bindings.get(0)).isEmpty()) {
+			return client;
+		}
+
+		BindingUtil.setBindings(client, bindings);
+		return client;
+
+	}
+
 	private static AccessConfig getAccessInfo() {
 		if (accessInfo == null) {
-			throw new RuntimeException();
+			accessInfo = AccessConfigFactory.create();
 		}
 		return accessInfo;
 	}
 
 	public static <T> T create(Class<T> clazz, AccessConfig accessInfo,
 			String serviceId, BindingNode... bindings) {
-		return create(clazz,
-				accessInfo.getServiceInterfaceURL() + "/" + serviceId,
-				accessInfo.getUserId(), accessInfo.getPassword(), bindings);
-	}
-
-	public static <T> T create(Class<T> clazz, String serviceInterfaceURL,
-			String userId, String passwd, BindingNode... bindings) {
 		try {
 			T client = new SoapClientFactory().create(clazz,
-					new URL(serviceInterfaceURL), userId, passwd);
-			BindingUtil.setBindings(client, bindings);
-			return client;
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
-
-	public static <T> T create(Class<T> clazz, String serviceInterfaceURL,
-			String userId, String passwd, LList bindings) {
-
-		try {
-			T client = new SoapClientFactory().create(clazz,
-					new URL(serviceInterfaceURL), userId, passwd);
+					new URL(accessInfo.getServiceInterfaceURL() + "/"
+							+ serviceId),
+					accessInfo.getUserId(), accessInfo.getPassword());
 			BindingUtil.setBindings(client, bindings);
 			return client;
 		} catch (MalformedURLException e) {
