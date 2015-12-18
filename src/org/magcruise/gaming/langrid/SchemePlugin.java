@@ -1,9 +1,8 @@
 package org.magcruise.gaming.langrid;
 
 import java.io.File;
+import java.net.URI;
 import java.net.URISyntaxException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -18,14 +17,14 @@ public class SchemePlugin {
 
 	public static void main(String[] args) {
 		GameExecutorManager.getInstance().loadFramework(SExpressionUtils.setUpEnvironment());
-		SExpressionUtils.load(new File("sample/invocation.scm").toPath());
+		SExpressionUtils.load(new File("sample/invocation.scm").toURI());
 
 	}
 
 	public static void load(Environment env) {
 
 		try {
-			Path framework = Paths.get(SchemePlugin.class.getResource("/scm/langrid.scm").toURI());
+			URI framework = SchemePlugin.class.getResource("/scm/langrid.scm").toURI();
 			log.debug("Load framework ... {}", framework);
 			SExpressionUtils.load(env, framework);
 

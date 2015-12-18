@@ -1,6 +1,5 @@
 package org.magcruise.gaming.langrid;
 
-import java.io.FileReader;
 import java.io.IOException;
 
 import org.apache.logging.log4j.LogManager;
@@ -16,8 +15,12 @@ public class AccessConfigFactory {
 
 	public static AccessConfig create(gnu.kawa.io.Path confFile) {
 		try {
-			return JSON.decode(confFile.toUri().toURL().openStream(),
-					AccessConfig.class);
+			if (confFile.isPlainFile()) {
+				return JSON.decode(confFile.openInputStream(), AccessConfig.class);
+
+			} else {
+				return JSON.decode(confFile.toUri().toURL().openStream(), AccessConfig.class);
+			}
 		} catch (JSONException | IOException e) {
 			log.error(e, e);
 			throw new RuntimeException(e);
