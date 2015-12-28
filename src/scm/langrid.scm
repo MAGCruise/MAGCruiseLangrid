@@ -1,7 +1,6 @@
 (display "(load langrid.scm ... ")
 
 (define-namespace langrid "org.magcruise.langrid")
-(define-alias Translation jp.go.nict.langrid.service_1_2.bilingualdictionary.Translation)
 
 (define (langrid:set-proxy host port)
   (<java.lang.System>:setProperty "http.proxyHost" host)

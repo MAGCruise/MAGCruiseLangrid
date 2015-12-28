@@ -1,6 +1,8 @@
 (org.magcruise.gaming.langrid.SchemePlugin:load)
 (org.magcruise.gaming.langrid.AccessConfigFactory:setPath (path "sample/langrid-conf.json"))
 
+(define-alias Translation jp.go.nict.langrid.service_1_2.bilingualdictionary.Translation)
+
 (display (langrid:BilingualDictionary-search "Lsd" "en" "ja" "bank" "COMPLETE" ))
 (display "\n")
 ;; [jp.go.nict.langrid.service_1_2.bilingualdictionary.Translation@7a06b0fa[headWord=bank,targetWords={銀行}]]
