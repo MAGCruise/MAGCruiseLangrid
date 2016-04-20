@@ -1,4 +1,4 @@
-(org.magcruise.gaming.langrid.SchemePlugin:load)
+(org.magcruise.gaming.langrid.SchemePlugin:load (SchemeEnvironment:getCurrent))
 (org.magcruise.gaming.langrid.AccessConfigFactory:setPath (path "sample/langrid-conf.json"))
 
 (define-alias Translation jp.go.nict.langrid.service_1_2.bilingualdictionary.Translation)
@@ -9,9 +9,9 @@
 
 (define original-sentence "今日は晴れです．")
 
-(let* ((translated-sentence 
+(let* ((translated-sentence
           (langrid:Translation-translate "KyotoUJServer" "ja" "en" original-sentence))
-       (back-translated-sentence 
+       (back-translated-sentence
           (langrid:Translation-translate "KyotoUJServer" "en" "ja" translated-sentence)))
   (display original-sentence)(display "\n");; 今日は晴れです．
   (display translated-sentence)(display "\n");; It is sunny today.
@@ -24,19 +24,19 @@
 ;; Higashiyama including Mt. Hiei in capital Kyoto is also called Higashiyama 36 back.
 ;; Higashiyama including Mt. Hiei in capital Kyoto is also called HIGASHIYAMA36HOU .
 
-(display 
+(display
   (langrid:Translation-translate "KyotoUJServer" "ja" "en" original-sentence))
 (display "\n")
 
-(display 
-  (langrid:Translation-translate 
+(display
+  (langrid:Translation-translate
     "TranslationCombinedWithBilingualDictionaryWithLongestMatchSearch" "ja" "en" original-sentence
     (list "TranslationPL" "KyotoUJServer")
     (list "BilingualDictionaryWithLongestMatchSearchPL" "KyotoTourismDictionary")))
 (display "\n")
 
-(display 
-  (langrid:TranslationWithTemporalDictionary-translate 
+(display
+  (langrid:TranslationWithTemporalDictionary-translate
     "TranslationCombinedWithBilingualDictionaryWithLongestMatchSearch" "ja" "en" original-sentence
     (Translation[] (make Translation "東山３６峰" (String[] "HIGASHIYAMA36HOU")))
     "en"

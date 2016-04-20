@@ -6,39 +6,29 @@ import java.net.URISyntaxException;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.magcruise.gaming.manager.GameExecutorManager;
-import org.magcruise.gaming.util.SExpressionUtils;
-
-import gnu.mapping.Environment;
-import kawa.standard.Scheme;
+import org.magcruise.gaming.lang.SchemeEnvironment;
 
 public class SchemePlugin {
 	private static Logger log = LogManager.getLogger();
 
 	public static void main(String[] args) {
-		GameExecutorManager.getInstance().loadFramework();
-		SExpressionUtils.load(new File("sample/invocation.scm").toURI());
-
+		SchemeEnvironment env = SchemeEnvironment
+				.createNewEnvironmentAndSetCurrent();
+		env.load(new File("sample/invocation.scm").toURI());
 	}
 
-	public static void load(Environment env) {
+	public static void load(SchemeEnvironment env) {
 
 		try {
 			URI framework = SchemePlugin.class.getResource("/scm/langrid.scm")
 					.toURI();
 			log.debug("Load framework ... {}", framework);
-			SExpressionUtils.load(env, framework);
-
+			env.load(framework);
 		} catch (URISyntaxException e) {
-
 			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 
-	}
-
-	public static void load() {
-		Scheme.registerEnvironment();
-		SchemePlugin.load(SExpressionUtils.getCurrent());
 	}
 
 }
