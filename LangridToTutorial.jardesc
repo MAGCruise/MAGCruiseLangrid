@@ -11,12 +11,7 @@
         </sealing>
     </manifest>
     <selectedElements exportClassFiles="true" exportJavaFiles="true" exportOutputFolder="false">
-        <file path="/MAGCruiseLangrid/pom.xml"/>
         <javaElement handleIdentifier="=MAGCruiseLangrid/src\/main\/java"/>
-        <file path="/MAGCruiseLangrid/.classpath"/>
-        <file path="/MAGCruiseLangrid/LICENSE"/>
         <javaElement handleIdentifier="=MAGCruiseLangrid/src\/main\/scheme"/>
-        <file path="/MAGCruiseLangrid/.project"/>
-        <file path="/MAGCruiseLangrid/README.md"/>
     </selectedElements>
 </jardesc>
