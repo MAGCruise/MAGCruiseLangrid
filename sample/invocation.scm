@@ -1,4 +1,4 @@
-(org.magcruise.gaming.langrid.SchemePlugin:load (SchemeEnvironment:getCurrent))
+(org.magcruise.gaming.langrid.SchemePlugin:load (SchemeEnvironment:getCurrentEnvironmentName))
 (org.magcruise.gaming.langrid.AccessConfigFactory:setPath (path "sample/langrid-conf.json"))
 
 (define-alias Translation jp.go.nict.langrid.service_1_2.bilingualdictionary.Translation)

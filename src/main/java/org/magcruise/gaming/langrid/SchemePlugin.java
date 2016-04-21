@@ -12,18 +12,17 @@ public class SchemePlugin {
 	private static Logger log = LogManager.getLogger();
 
 	public static void main(String[] args) {
-		SchemeEnvironment env = SchemeEnvironment
-				.createNewEnvironmentAndSetCurrent();
-		env.load(new File("sample/invocation.scm").toURI());
+		String env = SchemeEnvironment.createNewEnvironmentAndSetCurrent();
+		SchemeEnvironment.load(env, new File("sample/invocation.scm").toURI());
 	}
 
-	public static void load(SchemeEnvironment env) {
+	public static void load(String env) {
 
 		try {
 			URI framework = SchemePlugin.class.getResource("/scm/langrid.scm")
 					.toURI();
 			log.debug("Load framework ... {}", framework);
-			env.load(framework);
+			SchemeEnvironment.load(env, framework);
 		} catch (URISyntaxException e) {
 			e.printStackTrace();
 			throw new RuntimeException(e);
