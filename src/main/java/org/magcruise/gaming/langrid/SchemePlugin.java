@@ -12,8 +12,8 @@ public class SchemePlugin {
 	private static Logger log = LogManager.getLogger();
 
 	public static void main(String[] args) {
-		String env = SchemeEnvironment.createNewEnvironmentAndSetCurrent();
-		SchemeEnvironment.load(env, new File("sample/invocation.scm").toURI());
+		SchemeEnvironment.load("main",
+				new File("sample/invocation.scm").toURI());
 	}
 
 	public static void load(String env) {

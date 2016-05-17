@@ -27,7 +27,7 @@ import gnu.lists.LList;
 import jp.go.nict.langrid.client.RequestAttributes;
 import jp.go.nict.langrid.commons.cs.binding.BindingNode;
 
-public class BindingUtil {
+public class BindingUtils {
 
 	public static void setBindings(Object client, BindingNode[] bindings) {
 		for (BindingNode binding : bindings) {

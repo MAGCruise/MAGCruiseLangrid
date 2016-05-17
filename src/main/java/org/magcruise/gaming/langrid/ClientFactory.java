@@ -32,7 +32,7 @@ public class ClientFactory {
 			return client;
 		}
 
-		BindingUtil.setBindings(client, bindings);
+		BindingUtils.setBindings(client, bindings);
 		return client;
 
 	}
@@ -51,7 +51,7 @@ public class ClientFactory {
 					new URL(accessInfo.getServiceInterfaceURL() + "/"
 							+ serviceId),
 					accessInfo.getUserId(), accessInfo.getPassword());
-			BindingUtil.setBindings(client, bindings);
+			BindingUtils.setBindings(client, bindings);
 			return client;
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
