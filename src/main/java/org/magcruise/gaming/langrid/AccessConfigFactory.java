@@ -11,15 +11,23 @@ import jp.go.nict.langrid.repackaged.net.arnx.jsonic.JSONException;
 public class AccessConfigFactory {
 
 	private static Logger log = LogManager.getLogger();
-	private static gnu.kawa.io.Path pathToConfig;
+	private static AccessConfig config = null;
 
-	public static AccessConfig create(gnu.kawa.io.Path confFile) {
+	public static void setFileInResource(String fileName) {
+		config = create(gnu.kawa.io.Path.coerceToPathOrNull(
+				AccessConfigFactory.class.getResource(fileName)));
+	}
+
+	private static AccessConfig create(gnu.kawa.io.Path confFile) {
+		log.debug(confFile);
 		try {
 			if (confFile.isPlainFile()) {
-				return JSON.decode(confFile.openInputStream(), AccessConfig.class);
+				return JSON.decode(confFile.openInputStream(),
+						AccessConfig.class);
 
 			} else {
-				return JSON.decode(confFile.toUri().toURL().openStream(), AccessConfig.class);
+				return JSON.decode(confFile.toUri().toURL().openStream(),
+						AccessConfig.class);
 			}
 		} catch (JSONException | IOException e) {
 			log.error(e, e);
@@ -32,20 +40,19 @@ public class AccessConfigFactory {
 	}
 
 	public static void setPath(java.nio.file.Path path) {
-		pathToConfig = gnu.kawa.io.Path.coerceToPathOrNull(path);
+		config = create(gnu.kawa.io.Path.coerceToPathOrNull(path));
 	}
 
 	public static void setPath(gnu.kawa.io.Path path) {
-		pathToConfig = path;
+		config = create(path);
 	}
 
 	public static AccessConfig create() {
-		if (pathToConfig == null) {
-			log.error(
-					"path to langrid-conf.json has not been set yet. This method should be called after setPath method.");
+		if (config == null) {
+			log.error("config file is not set yet.");
 			throw new RuntimeException();
 		}
-		return create(pathToConfig);
+		return config;
 	}
 
 }
