@@ -8,3 +8,4 @@
 /sample/langrid-conf.json
 /target/
 /.settings/org.eclipse.wst.validation.prefs
+/src/main/resources/langrid-conf.json
