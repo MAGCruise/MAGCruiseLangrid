@@ -49,8 +49,9 @@ public class AccessConfigFactory {
 
 	public static AccessConfig create() {
 		if (config == null) {
-			log.error("config file is not set yet.");
-			throw new RuntimeException();
+			String msg = "config file is not set yet.";
+			log.error(msg);
+			throw new IllegalStateException(msg);
 		}
 		return config;
 	}

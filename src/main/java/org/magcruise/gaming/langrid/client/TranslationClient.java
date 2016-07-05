@@ -35,7 +35,7 @@ import jp.go.nict.langrid.service_1_2.translation.TranslationService;
  */
 public class TranslationClient {
 
-	protected static transient Logger log = LogManager.getLogger();
+	protected static Logger log = LogManager.getLogger();
 
 	private TranslationService client;
 
@@ -72,7 +72,7 @@ public class TranslationClient {
 				| ServiceNotActiveException | ServiceNotFoundException
 				| InvalidLanguageTagException e) {
 			log.error(e, e);
-			throw new RuntimeException();
+			throw new RuntimeException(e);
 		}
 	}
 }

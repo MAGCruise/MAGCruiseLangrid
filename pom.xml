@@ -22,6 +22,11 @@
 			<artifactId>magcruise-core</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
 			<groupId>net.servicegrid</groupId>
 			<artifactId>jp.go.nict.langrid.client.soap</artifactId>
 		</dependency>
