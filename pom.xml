@@ -3,11 +3,10 @@
 	<modelVersion>4.0.0</modelVersion>
 	<version>0.0.1-SNAPSHOT</version>
 	<artifactId>magcruise-langrid</artifactId>
-	<name>${project.artifactId}</name>
 	<parent>
 		<groupId>org.magcruise</groupId>
 		<artifactId>magcruise-parent</artifactId>
-		<version>0.0.1</version>
+		<version>0.0.2-SNAPSHOT</version>
 	</parent>
 	<repositories>
 		<repository>
@@ -27,19 +26,19 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>net.servicegrid</groupId>
+			<groupId>org.langrid</groupId>
 			<artifactId>jp.go.nict.langrid.client.soap</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>net.servicegrid</groupId>
+			<groupId>org.langrid</groupId>
 			<artifactId>jp.go.nict.langrid.language</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>net.servicegrid</groupId>
+			<groupId>org.langrid</groupId>
 			<artifactId>jp.go.nict.langrid.service.common_1_2</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>net.servicegrid</groupId>
+			<groupId>org.langrid</groupId>
 			<artifactId>jp.go.nict.langrid.service.language_1_2</artifactId>
 		</dependency>
 
