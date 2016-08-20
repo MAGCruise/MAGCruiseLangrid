@@ -13,8 +13,16 @@
 			<id>nkjmlab-public</id>
 			<url>http://maven.nkjmlab.org/nexus/content/groups/public</url>
 		</repository>
+		<repository>
+			<id>nkjmlab-public-mirror</id>
+			<url>http://mirror.maven.nkjmlab.org/nexus/content/groups/public</url>
+		</repository>
 	</repositories>
-
+	<scm>
+		<connection>scm:git:git@github.com:magcruise/magcruise-langrid.git</connection>
+		<url>https://github.com/magcruise/magcruise-langrid</url>
+		<tag>HEAD</tag>
+	</scm>
 	<dependencies>
 		<dependency>
 			<groupId>org.magcruise</groupId>
@@ -69,17 +77,20 @@
 				</includes>
 			</resource>
 			<resource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**</include>
+				</includes>
+				<excludes>
+					<exclude>**/*.java</exclude>
+				</excludes>
+			</resource>
+			<resource>
 				<directory>src/main/resources</directory>
 				<includes>
 					<include>**</include>
 				</includes>
 			</resource>
 		</resources>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-assembly-plugin</artifactId>
-			</plugin>
-		</plugins>
 	</build>
 </project>
