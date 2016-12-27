@@ -41,8 +41,10 @@ public class TranslationClient {
 
 	public static void main(String[] args) {
 
-		TranslationClient tc = new TranslationClient(
-				AccessConfigFactory.create(), "GoogleTranslate");
+		TranslationClient tc = new TranslationClient(AccessConfigFactory.create(),
+				"GoogleTranslate");
+		//client = new TranslationClient("KyotoUJServer");
+
 		log.debug(tc.translate("ja", "en", "今日は良い天気です．"));
 		log.debug(tc.translate("ja", "vi", "今日は良い天気です．"));
 
