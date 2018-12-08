@@ -24,7 +24,7 @@ public class LangridSchemePlugin {
 	}
 
 	public static void setConfigFileInResource(String fileName) {
-		AccessConfigFactory.setFileInResource(fileName);
+		AccessConfigFactory.setFileInResource(AccessConfigFactory.class, fileName);
 	}
 
 }

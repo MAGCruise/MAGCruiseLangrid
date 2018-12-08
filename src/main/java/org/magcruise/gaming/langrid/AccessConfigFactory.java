@@ -13,21 +13,18 @@ public class AccessConfigFactory {
 	private static Logger log = LogManager.getLogger();
 	private static AccessConfig config = null;
 
-	public static void setFileInResource(String fileName) {
-		config = create(gnu.kawa.io.Path.coerceToPathOrNull(
-				AccessConfigFactory.class.getResource(fileName)));
+	public static void setFileInResource(Class<?> clazz, String fileName) {
+		config = create(gnu.kawa.io.Path.coerceToPathOrNull(clazz.getResource(fileName)));
 	}
 
 	private static AccessConfig create(gnu.kawa.io.Path confFile) {
 		log.debug(confFile);
 		try {
 			if (confFile.isPlainFile()) {
-				return JSON.decode(confFile.openInputStream(),
-						AccessConfig.class);
+				return JSON.decode(confFile.openInputStream(), AccessConfig.class);
 
 			} else {
-				return JSON.decode(confFile.toUri().toURL().openStream(),
-						AccessConfig.class);
+				return JSON.decode(confFile.toUri().toURL().openStream(), AccessConfig.class);
 			}
 		} catch (JSONException | IOException e) {
 			log.error(e, e);

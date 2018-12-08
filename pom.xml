@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<version>0.0.1-SNAPSHOT</version>
@@ -11,7 +12,7 @@
 	<repositories>
 		<repository>
 			<id>nkjmlab-public</id>
-			<url>http://maven.nkjmlab.org/nexus/content/groups/public</url>
+			<url>https://maven.nkjmlab.org/nexus/content/groups/public</url>
 		</repository>
 	</repositories>
 	<scm>
@@ -19,49 +20,62 @@
 		<url>https://github.com/magcruise/magcruise-langrid</url>
 		<tag>HEAD</tag>
 	</scm>
+	<properties>
+		<langrid-version>1.0.15</langrid-version>
+	</properties>
 	<dependencies>
-		<dependency>
-			<groupId>org.magcruise</groupId>
-			<artifactId>magcruise-core</artifactId>
-		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
+			<groupId>org.nkjmlab</groupId>
+			<artifactId>nkjmlab-utils</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.magcruise</groupId>
+			<artifactId>magcruise-core</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.langrid</groupId>
+			<artifactId>jp.go.nict.langrid.service.common_1_2</artifactId>
+			<version>${langrid-version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.langrid</groupId>
+			<artifactId>jp.go.nict.langrid.servicecontainer</artifactId>
+			<version>${langrid-version}</version>
+		</dependency>
+
+		<dependency>
 			<groupId>org.langrid</groupId>
 			<artifactId>jp.go.nict.langrid.client.soap</artifactId>
+			<version>${langrid-version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.langrid</groupId>
 			<artifactId>jp.go.nict.langrid.language</artifactId>
+			<version>${langrid-version}</version>
 		</dependency>
-		<dependency>
-			<groupId>org.langrid</groupId>
-			<artifactId>jp.go.nict.langrid.service.common_1_2</artifactId>
-		</dependency>
+
 		<dependency>
 			<groupId>org.langrid</groupId>
 			<artifactId>jp.go.nict.langrid.service.language_1_2</artifactId>
+			<version>${langrid-version}</version>
 		</dependency>
 
 		<dependency>
-			<groupId>com.floreysoft</groupId>
-			<artifactId>jmte</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>commons-codec</groupId>
-			<artifactId>commons-codec</artifactId>
+			<groupId>org.langrid</groupId>
+			<artifactId>jp.go.nict.langrid.client</artifactId>
+			<version>${langrid-version}</version>
 		</dependency>
 		<dependency>
-			<groupId>org.apache.logging.log4j</groupId>
-			<artifactId>log4j-api</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.logging.log4j</groupId>
-			<artifactId>log4j-core</artifactId>
+			<groupId>org.langrid</groupId>
+			<artifactId>jp.go.nict.langrid.commons</artifactId>
+			<version>${langrid-version}</version>
 		</dependency>
 	</dependencies>
 	<build>
