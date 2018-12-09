@@ -8,10 +8,10 @@
 
 (define (langrid:set-proxy-with-auth host port user passwd)
   (set-proxy host port)
-  (<java.net.Authenticator>:setDefault (org.magcruise.gaming.langrid.ProxyAuthenticator user passwd)))
+  (<java.net.Authenticator>:setDefault (org.nkjmlab.util.langrid.ProxyAuthenticator user passwd)))
 
 (define (langrid:make-client service-clazz ::java.lang.Class serviceId ::string  bindings)
-  (org.magcruise.gaming.langrid.ClientFactory:create
+  (org.nkjmlab.util.langrid.ClientFactory:create
     service-clazz serviceId bindings))
 
 (define (langrid:AdjacencyPair-search serviceId category language firstTurn matchingMethod . bindings)

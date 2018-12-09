@@ -5,6 +5,7 @@ import java.net.URISyntaxException;
 import org.junit.Before;
 import org.junit.Test;
 import org.magcruise.gaming.lang.SchemeEnvironment;
+import org.magcruise.gaming.langrid.LangridSchemePlugin;
 
 public class LangridSchemePluginTest {
 
