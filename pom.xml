@@ -20,9 +20,6 @@
 		<url>https://github.com/magcruise/magcruise-langrid</url>
 		<tag>HEAD</tag>
 	</scm>
-	<properties>
-		<langrid-version>1.0.15</langrid-version>
-	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
